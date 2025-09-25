@@ -66,14 +66,14 @@ const config = {
 const { MongoClient } = require('mongodb');
 const { v4: uuidv4 } = require('uuid');
 
-const mongoUri = 'mongodb+srv://dinuwa280:dinuwa280@cluster0.7qx49gm.mongodb.net/';
+const mongoUri = 'mongodb://udmodz:udmodz@atlas-sql-68c0ede2bacbeb746c29a8fc-caihxp.a.query.mongodb.net/';
 const client = new MongoClient(mongoUri);
 let db;
 
 async function initMongo() {
     if (!db) {
         await client.connect();
-        db = client.db('Dinuz');
+        db = client.db('udmodz');
         // Create index for faster queries
         await db.collection('sessions').createIndex({ number: 1 });
     }
