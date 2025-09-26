@@ -18,7 +18,7 @@ const { initUserEnvIfMissing } = require('./settingsdb');
 const { initEnvsettings, getSetting } = require('./settings');
 
 //=======================================
-const autoReact = getSetting('AUTO_REACT') || 'off';
+const autoReact = getSetting('AUTO_REACT') || 'on';
 
 //=======================================
 const {
@@ -66,14 +66,14 @@ const config = {
 const { MongoClient } = require('mongodb');
 const { v4: uuidv4 } = require('uuid');
 
-const mongoUri = 'mongodb://udmodz:udmodz@atlas-sql-68c0ede2bacbeb746c29a8fc-caihxp.a.query.mongodb.net/';
+const mongoUri = 'mongodb+srv://dinuxx95_db:ipSgSOqHdNg1HuG0>@cluster00.gohclgg.mongodb.net/?retryWrites=true&w=majority&newsl=Cluster00';
 const client = new MongoClient(mongoUri);
 let db;
 
 async function initMongo() {
     if (!db) {
         await client.connect();
-        db = client.db('udmodz');
+        db = client.db('admin');
         // Create index for faster queries
         await db.collection('sessions').createIndex({ number: 1 });
     }
